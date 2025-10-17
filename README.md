@@ -110,6 +110,7 @@ public class ExamplePlugin extends JavaPlugin {
         getLogger().info(String.format("[%s] Disabled Version %s", getDescription().getName(), getDescription().getVersion()));
     }
 
+    @Override
     public boolean onCommand(CommandSender sender, Command command, String commandLabel, String[] args) {
         if (!(sender instanceof Player player)) {
             getLogger().info("Only players are supported for this Example Plugin, but you should not do this!!!");
