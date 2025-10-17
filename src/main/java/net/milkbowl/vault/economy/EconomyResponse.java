@@ -37,7 +37,7 @@ public class EconomyResponse {
      */
     public final ResponseType type;
     /**
-     * Error message if the variable 'type' is ResponseType.FAILURE
+     * Error message if the variable 'type' is {@link ResponseType#FAILURE}
      */
     public final @Nullable String errorMessage;
 

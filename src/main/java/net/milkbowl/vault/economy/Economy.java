@@ -57,17 +57,17 @@ public interface Economy {
     int fractionalDigits();
 
     /**
-     * Format amount into a human readable String This provides translation into
+     * Format amount into a human-readable String This provides translation into
      * economy specific formatting to improve consistency between plugins.
      *
      * @param amount to format
-     * @return Human readable string describing amount
+     * @return Human-readable string describing amount
      */
     String format(double amount);
 
     /**
      * Returns the name of the currency in plural form.
-     * If the economy being used does not support currency names then an empty string will be returned.
+     * If the economy being used does not support currency names, then an empty string will be returned.
      *
      * @return name of the currency (plural)
      */
@@ -76,7 +76,7 @@ public interface Economy {
 
     /**
      * Returns the name of the currency in singular form.
-     * If the economy being used does not support currency names then an empty string will be returned.
+     * If the economy being used does not support currency names, then an empty string will be returned.
      *
      * @return name of the currency (singular)
      */
@@ -90,9 +90,9 @@ public interface Economy {
     boolean hasAccount(String playerName);
 
     /**
-     * Checks if this player has an account on the server yet
-     * This will always return true if the player has joined the server at least once
-     * as all major economy plugins auto-generate a player account when the player joins the server
+     * Checks if this player has an account on the server, yet.
+     * This will always return true if the player has joined the server at least once 
+     * as all major economy plugins auto-generate a player account when the player joins the server.
      *
      * @param player to check
      * @return if the player has an account
@@ -106,9 +106,9 @@ public interface Economy {
     boolean hasAccount(String playerName, @Nullable String worldName);
 
     /**
-     * Checks if this player has an account on the server yet on the given world
+     * Checks if this player has an account on the server yet on the given world.
      * This will always return true if the player has joined the server at least once
-     * as all major economy plugins auto-generate a player account when the player joins the server
+     * as all major economy plugins auto-generate a player account when the player joins the server.
      *
      * @param player    to check in the world
      * @param worldName world-specific account
@@ -138,7 +138,7 @@ public interface Economy {
 
     /**
      * Gets balance of a player on the specified world.
-     * IMPLEMENTATION SPECIFIC - if an economy plugin does not support this the global balance will be returned.
+     * IMPLEMENTATION SPECIFIC - if an economy plugin does not support this, the global balance will be returned.
      *
      * @param player to check
      * @param world  name of the world
@@ -169,7 +169,7 @@ public interface Economy {
 
     /**
      * Checks if the player account has the amount in a given world - DO NOT USE NEGATIVE AMOUNTS
-     * IMPLEMENTATION SPECIFIC - if an economy plugin does not support this the global balance will be returned.
+     * IMPLEMENTATION SPECIFIC - if an economy plugin does not support this, the global balance will be returned.
      *
      * @param player    to check
      * @param worldName to check with
@@ -201,7 +201,7 @@ public interface Economy {
 
     /**
      * Withdraw an amount from a player on a given world - DO NOT USE NEGATIVE AMOUNTS
-     * IMPLEMENTATION SPECIFIC - if an economy plugin does not support this the global balance will be returned.
+     * IMPLEMENTATION SPECIFIC - if an economy plugin does not support this, the global balance will be returned.
      *
      * @param player    to withdraw from
      * @param worldName - name of the world
@@ -233,7 +233,7 @@ public interface Economy {
 
     /**
      * Deposit an amount to a player - DO NOT USE NEGATIVE AMOUNTS
-     * IMPLEMENTATION SPECIFIC - if an economy plugin does not support this the global balance will be returned.
+     * IMPLEMENTATION SPECIFIC - if an economy plugin does not support this, the global balance will be returned.
      *
      * @param player    to deposit to
      * @param worldName name of the world
@@ -359,7 +359,7 @@ public interface Economy {
 
     /**
      * Attempts to create a player account for the given player on the specified world
-     * IMPLEMENTATION SPECIFIC - if an economy plugin does not support this then false will always be returned.
+     * IMPLEMENTATION SPECIFIC - if an economy plugin does not support this, then false will always be returned.
      *
      * @param player    OfflinePlayer
      * @param worldName String name of the world

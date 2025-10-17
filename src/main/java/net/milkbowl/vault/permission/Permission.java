@@ -73,10 +73,10 @@ public abstract class Permission {
 
     /**
      * Checks if a CommandSender has a permission node.
-     * This will return the result of bukkits, generic .hasPermission() method and is identical in all cases.
+     * This will return the result of bukkit's, generic .hasPermission() method and is identical in all cases.
      * This method will explicitly fail if the registered permission system does not register permissions in bukkit.
      * <p>
-     * For easy checking of a commandsender
+     * For easy checking of a command sender
      *
      * @param sender     to check permissions on
      * @param permission to check for
@@ -175,7 +175,8 @@ public abstract class Permission {
 
     /**
      * Add permission to a player ONLY for the world the player is currently on.
-     * This is a world-specific operation, if you want to add global permission you must explicitly use NULL for the world.
+     * This is a world-specific operation, if you want to add global permission,
+     * you must explicitly use NULL for the world.
      * See {@link #playerAdd(String, OfflinePlayer, String)} for global permission use.
      *
      * @param player     Player Object
@@ -310,7 +311,8 @@ public abstract class Permission {
 
     /**
      * Remove permission from a player.
-     * Will attempt to remove permission from the player on the player's current world.  This is NOT a global operation.
+     * Will attempt to remove permission from the player in the player's current world.
+     * This is NOT a global operation.
      *
      * @param player     Player Object
      * @param permission Permission node
@@ -324,8 +326,8 @@ public abstract class Permission {
     /**
      * Remove transient permission from a player.
      * This implementation can be used by any subclass which implements a "pure" superperms plugin, i.e.
-     * one that only needs the built-in Bukkit API to remove transient permissions from a player.  Any subclass
-     * implementing a plugin which provides its own API for this needs to override this method.
+     * one that only needs the built-in Bukkit API to remove transient permissions from a player.
+     * Any subclass implementing a plugin which provides its own API for these needs to override this method.
      *
      * @param player     OfflinePlayer
      * @param permission Permission node
@@ -461,7 +463,7 @@ public abstract class Permission {
     /**
      * Check if player is member of a group.
      * This method will ONLY check groups for which the player is in that are defined for the current world.
-     * This may result in odd return behaviour depending on what permission system has been registered.
+     * This may result in odd return behavior depending on what permission system has been registered.
      *
      * @param player Player Object
      * @param group  Group name
@@ -501,8 +503,9 @@ public abstract class Permission {
 
     /**
      * Add player to a group.
-     * This will add a player to the group on the current World.  This may return odd results if the permission system
-     * being used on the server does not support world-specific groups, or if the group being added to is a global group.
+     * This will add a player to the group in the current World.
+     * This may return odd results if the permission system being used on the server does not support world-specific groups,
+     * or if the group being added to is a global group.
      *
      * @param player Player Object
      * @param group  Group name
@@ -542,8 +545,9 @@ public abstract class Permission {
 
     /**
      * Remove player from a group.
-     * This will add a player to the group on the current World.  This may return odd results if the permission system
-     * being used on the server does not support world-specific groups, or if the group being added to is a global group.
+     * This will add a player to the group in the current World.
+     * This may return odd results if the permission system being used on the server does not support world-specific groups,
+     * or if the group being added to is a global group.
      *
      * @param player Player Object
      * @param group  Group name

@@ -705,8 +705,8 @@ public abstract class Chat {
     /**
      * Get a groups informational node (Boolean) value
      *
-     * @param world        Name of World
-     * @param group        Name of Group
+     * @param world        Name of the world
+     * @param group        Name of the group
      * @param node         Permission node
      * @param defaultValue Default value
      * @return Value
@@ -850,8 +850,8 @@ public abstract class Chat {
     /**
      * Get a groups informational node (String) value
      *
-     * @param world        Name of World
-     * @param group        Name of Group
+     * @param world        Name of the world
+     * @param group        Name of the group
      * @param node         Permission node
      * @param defaultValue Default value
      * @return Value
@@ -911,7 +911,7 @@ public abstract class Chat {
      * @param group  Group name
      * @return Success or Failure
      * @deprecated As of VaultAPI 1.4 use {@link #playerInGroup(String, OfflinePlayer, String)} instead.
-     * Check if player is member of a group.
+     * Check if the player is a member of a group.
      */
     @Deprecated(since = "1.4")
     public boolean playerInGroup(@Nullable String world, String player, String group) {
@@ -924,7 +924,7 @@ public abstract class Chat {
      * @param group  Group name
      * @return Success or Failure
      * @deprecated As of VaultAPI 1.4 use {@link #playerInGroup(String, OfflinePlayer, String)} instead.
-     * Check if player is member of a group.
+     * Check if the player is a member of a group.
      */
     @Deprecated(since = "1.4")
     public boolean playerInGroup(@Nullable World world, String player, String group) {
