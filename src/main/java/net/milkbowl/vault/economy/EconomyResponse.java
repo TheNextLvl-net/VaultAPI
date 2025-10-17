@@ -15,11 +15,12 @@
  */
 package net.milkbowl.vault.economy;
 
+import org.jspecify.annotations.Nullable;
+
 /**
  * Indicates a typical Return for an Economy method.
  * It includes a {@link ResponseType} indicating whether the plugin currently being used for Economy actually allows
  * the method, or if the operation was a success or failure.
- *
  */
 public class EconomyResponse {
     /**
@@ -38,7 +39,7 @@ public class EconomyResponse {
     /**
      * Error message if the variable 'type' is ResponseType.FAILURE
      */
-    public final String errorMessage;
+    public final @Nullable String errorMessage;
 
     /**
      * Constructor for EconomyResponse
@@ -48,7 +49,7 @@ public class EconomyResponse {
      * @param type         Success or failure type of the operation
      * @param errorMessage Error message if necessary (commonly null)
      */
-    public EconomyResponse(double amount, double balance, ResponseType type, String errorMessage) {
+    public EconomyResponse(double amount, double balance, ResponseType type, @Nullable String errorMessage) {
         this.amount = amount;
         this.balance = balance;
         this.type = type;

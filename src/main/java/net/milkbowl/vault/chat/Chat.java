@@ -19,10 +19,10 @@ import net.milkbowl.vault.permission.Permission;
 import org.bukkit.OfflinePlayer;
 import org.bukkit.World;
 import org.bukkit.entity.Player;
+import org.jspecify.annotations.Nullable;
 
 /**
  * The main Chat API - allows for Prefix/Suffix nodes along with generic Info nodes if the linked Chat system supports them
- *
  */
 public abstract class Chat {
 
@@ -55,7 +55,7 @@ public abstract class Chat {
      * Get players prefix
      */
     @Deprecated(since = "1.4")
-    abstract public String getPlayerPrefix(String world, String player);
+    abstract public String getPlayerPrefix(@Nullable String world, String player);
 
     /**
      * Get a players prefix in the given world
@@ -65,7 +65,7 @@ public abstract class Chat {
      * @param player OfflinePlayer
      * @return Prefix
      */
-    public String getPlayerPrefix(String world, OfflinePlayer player) {
+    public String getPlayerPrefix(@Nullable String world, OfflinePlayer player) {
         return getPlayerPrefix(world, player.getName());
     }
 
@@ -78,8 +78,8 @@ public abstract class Chat {
      * Get players prefix
      */
     @Deprecated(since = "1.4")
-    public String getPlayerPrefix(World world, String player) {
-        return getPlayerPrefix(world.getName(), player);
+    public String getPlayerPrefix(@Nullable World world, String player) {
+        return getPlayerPrefix(world != null ? world.getName() : null, player);
     }
 
     /**
@@ -102,7 +102,7 @@ public abstract class Chat {
      * Set players prefix
      */
     @Deprecated(since = "1.4")
-    abstract public void setPlayerPrefix(String world, String player, String prefix);
+    abstract public void setPlayerPrefix(@Nullable String world, String player, String prefix);
 
     /**
      * Sets players prefix in the given world.
@@ -112,7 +112,7 @@ public abstract class Chat {
      * @param player OfflinePlayer
      * @param prefix Prefix
      */
-    public void setPlayerPrefix(String world, OfflinePlayer player, String prefix) {
+    public void setPlayerPrefix(@Nullable String world, OfflinePlayer player, String prefix) {
         setPlayerPrefix(world, player.getName(), prefix);
     }
 
@@ -125,8 +125,8 @@ public abstract class Chat {
      * Set players prefix in the given world.
      */
     @Deprecated(since = "1.4")
-    public void setPlayerPrefix(World world, String player, String prefix) {
-        setPlayerPrefix(world.getName(), player, prefix);
+    public void setPlayerPrefix(@Nullable World world, String player, String prefix) {
+        setPlayerPrefix(world != null ? world.getName() : null, player, prefix);
     }
 
     /**
@@ -148,7 +148,7 @@ public abstract class Chat {
      * Get players suffix
      */
     @Deprecated(since = "1.4")
-    abstract public String getPlayerSuffix(String world, String player);
+    abstract public String getPlayerSuffix(@Nullable String world, String player);
 
     /**
      * Get players suffix in the specified world.
@@ -157,7 +157,7 @@ public abstract class Chat {
      * @param player OfflinePlayer name
      * @return Suffix
      */
-    public String getPlayerSuffix(String world, OfflinePlayer player) {
+    public String getPlayerSuffix(@Nullable String world, OfflinePlayer player) {
         return getPlayerSuffix(world, player.getName());
     }
 
@@ -170,8 +170,8 @@ public abstract class Chat {
      * Get players suffix
      */
     @Deprecated(since = "1.4")
-    public String getPlayerSuffix(World world, String player) {
-        return getPlayerSuffix(world.getName(), player);
+    public String getPlayerSuffix(@Nullable World world, String player) {
+        return getPlayerSuffix(world != null ? world.getName() : null, player);
     }
 
     /**
@@ -193,7 +193,7 @@ public abstract class Chat {
      * Set players suffix
      */
     @Deprecated(since = "1.4")
-    abstract public void setPlayerSuffix(String world, String player, String suffix);
+    abstract public void setPlayerSuffix(@Nullable String world, String player, String suffix);
 
     /**
      * Set players suffix for the world specified
@@ -202,7 +202,7 @@ public abstract class Chat {
      * @param player OfflinePlayer
      * @param suffix Suffix
      */
-    public void setPlayerSuffix(String world, OfflinePlayer player, String suffix) {
+    public void setPlayerSuffix(@Nullable String world, OfflinePlayer player, String suffix) {
         setPlayerSuffix(world, player.getName(), suffix);
     }
 
@@ -215,8 +215,8 @@ public abstract class Chat {
      * Set players suffix
      */
     @Deprecated(since = "1.4")
-    public void setPlayerSuffix(World world, String player, String suffix) {
-        setPlayerSuffix(world.getName(), player, suffix);
+    public void setPlayerSuffix(@Nullable World world, String player, String suffix) {
+        setPlayerSuffix(world != null ? world.getName() : null, player, suffix);
     }
 
     /**
@@ -236,7 +236,7 @@ public abstract class Chat {
      * @param group Group name
      * @return Prefix
      */
-    abstract public String getGroupPrefix(String world, String group);
+    abstract public String getGroupPrefix(@Nullable String world, String group);
 
     /**
      * Get group prefix
@@ -245,8 +245,8 @@ public abstract class Chat {
      * @param group Group name
      * @return Prefix
      */
-    public String getGroupPrefix(World world, String group) {
-        return getGroupPrefix(world.getName(), group);
+    public String getGroupPrefix(@Nullable World world, String group) {
+        return getGroupPrefix(world != null ? world.getName() : null, group);
     }
 
     /**
@@ -256,7 +256,7 @@ public abstract class Chat {
      * @param group  Group name
      * @param prefix Prefix
      */
-    abstract public void setGroupPrefix(String world, String group, String prefix);
+    abstract public void setGroupPrefix(@Nullable String world, String group, String prefix);
 
     /**
      * Set group prefix
@@ -265,8 +265,8 @@ public abstract class Chat {
      * @param group  Group name
      * @param prefix Prefix
      */
-    public void setGroupPrefix(World world, String group, String prefix) {
-        setGroupPrefix(world.getName(), group, prefix);
+    public void setGroupPrefix(@Nullable World world, String group, String prefix) {
+        setGroupPrefix(world != null ? world.getName() : null, group, prefix);
     }
 
     /**
@@ -276,7 +276,7 @@ public abstract class Chat {
      * @param group Group name
      * @return Suffix
      */
-    abstract public String getGroupSuffix(String world, String group);
+    abstract public String getGroupSuffix(@Nullable String world, String group);
 
     /**
      * Get group suffix
@@ -285,7 +285,7 @@ public abstract class Chat {
      * @param group Group name
      * @return Suffix
      */
-    public String getGroupSuffix(World world, String group) {
+    public String getGroupSuffix(@Nullable World world, String group) {
         return getGroupSuffix(world.getName(), group);
     }
 
@@ -296,7 +296,7 @@ public abstract class Chat {
      * @param group  Group name
      * @param suffix Suffix
      */
-    abstract public void setGroupSuffix(String world, String group, String suffix);
+    abstract public void setGroupSuffix(@Nullable String world, String group, String suffix);
 
     /**
      * Set group suffix
@@ -305,8 +305,8 @@ public abstract class Chat {
      * @param group  Group name
      * @param suffix Suffix
      */
-    public void setGroupSuffix(World world, String group, String suffix) {
-        setGroupSuffix(world.getName(), group, suffix);
+    public void setGroupSuffix(@Nullable World world, String group, String suffix) {
+        setGroupSuffix(world != null ? world.getName() : null, group, suffix);
     }
 
     /**
@@ -318,7 +318,7 @@ public abstract class Chat {
      * @param defaultValue Default value
      * @return Value
      */
-    public int getPlayerInfoInteger(String world, OfflinePlayer player, String node, int defaultValue) {
+    public int getPlayerInfoInteger(@Nullable String world, OfflinePlayer player, String node, int defaultValue) {
         return getPlayerInfoInteger(world, player.getName(), node, defaultValue);
     }
 
@@ -332,7 +332,7 @@ public abstract class Chat {
      * Get a players informational node (Integer) value
      */
     @Deprecated(since = "1.4")
-    abstract public int getPlayerInfoInteger(String world, String player, String node, int defaultValue);
+    abstract public int getPlayerInfoInteger(@Nullable String world, String player, String node, int defaultValue);
 
     /**
      * @param world        World Object
@@ -345,8 +345,8 @@ public abstract class Chat {
      * Get a players informational node (Integer) value
      */
     @Deprecated(since = "1.4")
-    public int getPlayerInfoInteger(World world, String player, String node, int defaultValue) {
-        return getPlayerInfoInteger(world.getName(), player, node, defaultValue);
+    public int getPlayerInfoInteger(@Nullable World world, String player, String node, int defaultValue) {
+        return getPlayerInfoInteger(world != null ? world.getName() : null, player, node, defaultValue);
     }
 
     /**
@@ -369,7 +369,7 @@ public abstract class Chat {
      * @param node   Permission node
      * @param value  Value to set
      */
-    public void setPlayerInfoInteger(String world, OfflinePlayer player, String node, int value) {
+    public void setPlayerInfoInteger(@Nullable String world, OfflinePlayer player, String node, int value) {
         setPlayerInfoInteger(world, player.getName(), node, value);
     }
 
@@ -383,7 +383,7 @@ public abstract class Chat {
      * Set a players informational node (Integer) value
      */
     @Deprecated(since = "1.4")
-    abstract public void setPlayerInfoInteger(String world, String player, String node, int value);
+    abstract public void setPlayerInfoInteger(@Nullable String world, String player, String node, int value);
 
     /**
      * @param world  World Object
@@ -395,8 +395,8 @@ public abstract class Chat {
      * Set a players informational node (Integer) value
      */
     @Deprecated(since = "1.4")
-    public void setPlayerInfoInteger(World world, String player, String node, int value) {
-        setPlayerInfoInteger(world.getName(), player, node, value);
+    public void setPlayerInfoInteger(@Nullable World world, String player, String node, int value) {
+        setPlayerInfoInteger(world != null ? world.getName() : null, player, node, value);
     }
 
     /**
@@ -419,7 +419,7 @@ public abstract class Chat {
      * @param defaultValue Default value
      * @return Value
      */
-    abstract public int getGroupInfoInteger(String world, String group, String node, int defaultValue);
+    abstract public int getGroupInfoInteger(@Nullable String world, String group, String node, int defaultValue);
 
     /**
      * Get a groups informational node (Integer) value
@@ -430,8 +430,8 @@ public abstract class Chat {
      * @param defaultValue Default value
      * @return Value
      */
-    public int getGroupInfoInteger(World world, String group, String node, int defaultValue) {
-        return getGroupInfoInteger(world.getName(), group, node, defaultValue);
+    public int getGroupInfoInteger(@Nullable World world, String group, String node, int defaultValue) {
+        return getGroupInfoInteger(world != null ? world.getName() : null, group, node, defaultValue);
     }
 
     /**
@@ -442,7 +442,7 @@ public abstract class Chat {
      * @param node  Permission node
      * @param value Value to set
      */
-    abstract public void setGroupInfoInteger(String world, String group, String node, int value);
+    abstract public void setGroupInfoInteger(@Nullable String world, String group, String node, int value);
 
     /**
      * Set a groups informational node (Integer) value
@@ -452,8 +452,8 @@ public abstract class Chat {
      * @param node  Permission node
      * @param value Value to set
      */
-    public void setGroupInfoInteger(World world, String group, String node, int value) {
-        setGroupInfoInteger(world.getName(), group, node, value);
+    public void setGroupInfoInteger(@Nullable World world, String group, String node, int value) {
+        setGroupInfoInteger(world != null ? world.getName() : null, group, node, value);
     }
 
     /**
@@ -465,7 +465,7 @@ public abstract class Chat {
      * @param defaultValue Default value
      * @return Value
      */
-    public double getPlayerInfoDouble(String world, OfflinePlayer player, String node, double defaultValue) {
+    public double getPlayerInfoDouble(@Nullable String world, OfflinePlayer player, String node, double defaultValue) {
         return getPlayerInfoDouble(world, player.getName(), node, defaultValue);
     }
 
@@ -480,7 +480,7 @@ public abstract class Chat {
      * Get a players informational node (Double) value
      */
     @Deprecated(since = "1.4")
-    abstract public double getPlayerInfoDouble(String world, String player, String node, double defaultValue);
+    abstract public double getPlayerInfoDouble(@Nullable String world, String player, String node, double defaultValue);
 
     /**
      * @param world        World Object
@@ -493,8 +493,8 @@ public abstract class Chat {
      * Get a players informational node (Double) value
      */
     @Deprecated(since = "1.4")
-    public double getPlayerInfoDouble(World world, String player, String node, double defaultValue) {
-        return getPlayerInfoDouble(world.getName(), player, node, defaultValue);
+    public double getPlayerInfoDouble(@Nullable World world, String player, String node, double defaultValue) {
+        return getPlayerInfoDouble(world != null ? world.getName() : null, player, node, defaultValue);
     }
 
     /**
@@ -517,7 +517,7 @@ public abstract class Chat {
      * @param node   Permission node
      * @param value  Value to set
      */
-    public void setPlayerInfoDouble(String world, OfflinePlayer player, String node, double value) {
+    public void setPlayerInfoDouble(@Nullable String world, OfflinePlayer player, String node, double value) {
         setPlayerInfoDouble(world, player.getName(), node, value);
     }
 
@@ -530,7 +530,7 @@ public abstract class Chat {
      * Set a players informational node (Double) value
      */
     @Deprecated(since = "1.4")
-    abstract public void setPlayerInfoDouble(String world, String player, String node, double value);
+    abstract public void setPlayerInfoDouble(@Nullable String world, String player, String node, double value);
 
     /**
      * @param world  World Object
@@ -541,8 +541,8 @@ public abstract class Chat {
      * Set a players informational node (Double) value
      */
     @Deprecated(since = "1.4")
-    public void setPlayerInfoDouble(World world, String player, String node, double value) {
-        setPlayerInfoDouble(world.getName(), player, node, value);
+    public void setPlayerInfoDouble(@Nullable World world, String player, String node, double value) {
+        setPlayerInfoDouble(world != null ? world.getName() : null, player, node, value);
     }
 
     /**
@@ -565,7 +565,7 @@ public abstract class Chat {
      * @param defaultValue Default value
      * @return Value
      */
-    abstract public double getGroupInfoDouble(String world, String group, String node, double defaultValue);
+    abstract public double getGroupInfoDouble(@Nullable String world, String group, String node, double defaultValue);
 
     /**
      * Get a groups informational node (Double) value
@@ -576,8 +576,8 @@ public abstract class Chat {
      * @param defaultValue Default value
      * @return Value
      */
-    public double getGroupInfoDouble(World world, String group, String node, double defaultValue) {
-        return getGroupInfoDouble(world.getName(), group, node, defaultValue);
+    public double getGroupInfoDouble(@Nullable World world, String group, String node, double defaultValue) {
+        return getGroupInfoDouble(world != null ? world.getName() : null, group, node, defaultValue);
     }
 
     /**
@@ -588,7 +588,7 @@ public abstract class Chat {
      * @param node  Permission node
      * @param value Value to set
      */
-    abstract public void setGroupInfoDouble(String world, String group, String node, double value);
+    abstract public void setGroupInfoDouble(@Nullable String world, String group, String node, double value);
 
     /**
      * Set a groups informational node (Double) value
@@ -598,8 +598,8 @@ public abstract class Chat {
      * @param node  Permission node
      * @param value Value to set
      */
-    public void setGroupInfoDouble(World world, String group, String node, double value) {
-        setGroupInfoDouble(world.getName(), group, node, value);
+    public void setGroupInfoDouble(@Nullable World world, String group, String node, double value) {
+        setGroupInfoDouble(world != null ? world.getName() : null, group, node, value);
     }
 
     /**
@@ -611,7 +611,7 @@ public abstract class Chat {
      * @param defaultValue Default value
      * @return Value
      */
-    public boolean getPlayerInfoBoolean(String world, OfflinePlayer player, String node, boolean defaultValue) {
+    public boolean getPlayerInfoBoolean(@Nullable String world, OfflinePlayer player, String node, boolean defaultValue) {
         return getPlayerInfoBoolean(world, player.getName(), node, defaultValue);
     }
 
@@ -626,7 +626,7 @@ public abstract class Chat {
      * Get a players informational node (Boolean) value
      */
     @Deprecated(since = "1.4")
-    abstract public boolean getPlayerInfoBoolean(String world, String player, String node, boolean defaultValue);
+    abstract public boolean getPlayerInfoBoolean(@Nullable String world, String player, String node, boolean defaultValue);
 
     /**
      * @param world        World Object
@@ -639,8 +639,8 @@ public abstract class Chat {
      * Get a players informational node (Boolean) value
      */
     @Deprecated(since = "1.4")
-    public boolean getPlayerInfoBoolean(World world, String player, String node, boolean defaultValue) {
-        return getPlayerInfoBoolean(world.getName(), player, node, defaultValue);
+    public boolean getPlayerInfoBoolean(@Nullable World world, String player, String node, boolean defaultValue) {
+        return getPlayerInfoBoolean(world != null ? world.getName() : null, player, node, defaultValue);
     }
 
     /**
@@ -663,7 +663,7 @@ public abstract class Chat {
      * @param node   Permission node
      * @param value  Value to set
      */
-    public void setPlayerInfoBoolean(String world, OfflinePlayer player, String node, boolean value) {
+    public void setPlayerInfoBoolean(@Nullable String world, OfflinePlayer player, String node, boolean value) {
         setPlayerInfoBoolean(world, player.getName(), node, value);
     }
 
@@ -676,7 +676,7 @@ public abstract class Chat {
      * Set a players informational node (Boolean) value
      */
     @Deprecated(since = "1.4")
-    abstract public void setPlayerInfoBoolean(String world, String player, String node, boolean value);
+    abstract public void setPlayerInfoBoolean(@Nullable String world, String player, String node, boolean value);
 
     /**
      * @param world  World Object
@@ -687,8 +687,8 @@ public abstract class Chat {
      * Set a players informational node (Boolean) value
      */
     @Deprecated(since = "1.4")
-    public void setPlayerInfoBoolean(World world, String player, String node, boolean value) {
-        setPlayerInfoBoolean(world.getName(), player, node, value);
+    public void setPlayerInfoBoolean(@Nullable World world, String player, String node, boolean value) {
+        setPlayerInfoBoolean(world != null ? world.getName() : null, player, node, value);
     }
 
     /**
@@ -711,7 +711,7 @@ public abstract class Chat {
      * @param defaultValue Default value
      * @return Value
      */
-    abstract public boolean getGroupInfoBoolean(String world, String group, String node, boolean defaultValue);
+    abstract public boolean getGroupInfoBoolean(@Nullable String world, String group, String node, boolean defaultValue);
 
     /**
      * Set a players informational node (Boolean) value
@@ -722,8 +722,8 @@ public abstract class Chat {
      * @param defaultValue Default value
      * @return Value
      */
-    public boolean getGroupInfoBoolean(World world, String group, String node, boolean defaultValue) {
-        return getGroupInfoBoolean(world.getName(), group, node, defaultValue);
+    public boolean getGroupInfoBoolean(@Nullable World world, String group, String node, boolean defaultValue) {
+        return getGroupInfoBoolean(world != null ? world.getName() : null, group, node, defaultValue);
     }
 
     /**
@@ -734,7 +734,7 @@ public abstract class Chat {
      * @param node  Permission node
      * @param value Value to set
      */
-    abstract public void setGroupInfoBoolean(String world, String group, String node, boolean value);
+    abstract public void setGroupInfoBoolean(@Nullable String world, String group, String node, boolean value);
 
     /**
      * Set a players informational node (Boolean) value
@@ -744,8 +744,8 @@ public abstract class Chat {
      * @param node  Permission node
      * @param value Value to set
      */
-    public void setGroupInfoBoolean(World world, String group, String node, boolean value) {
-        setGroupInfoBoolean(world.getName(), group, node, value);
+    public void setGroupInfoBoolean(@Nullable World world, String group, String node, boolean value) {
+        setGroupInfoBoolean(world != null ? world.getName() : null, group, node, value);
     }
 
     /**
@@ -757,7 +757,7 @@ public abstract class Chat {
      * @param defaultValue Default value
      * @return Value
      */
-    public String getPlayerInfoString(String world, OfflinePlayer player, String node, String defaultValue) {
+    public String getPlayerInfoString(@Nullable String world, OfflinePlayer player, String node, String defaultValue) {
         return getPlayerInfoString(world, player.getName(), node, defaultValue);
     }
 
@@ -772,7 +772,7 @@ public abstract class Chat {
      * Get a players informational node (String) value
      */
     @Deprecated(since = "1.4")
-    abstract public String getPlayerInfoString(String world, String player, String node, String defaultValue);
+    abstract public String getPlayerInfoString(@Nullable String world, String player, String node, String defaultValue);
 
     /**
      * @param world        World Object
@@ -784,8 +784,8 @@ public abstract class Chat {
      * Get a players informational node (String) value
      */
     @Deprecated(since = "1.4")
-    public String getPlayerInfoString(World world, String player, String node, String defaultValue) {
-        return getPlayerInfoString(world.getName(), player, node, defaultValue);
+    public String getPlayerInfoString(@Nullable World world, String player, String node, String defaultValue) {
+        return getPlayerInfoString(world != null ? world.getName() : null, player, node, defaultValue);
     }
 
     /**
@@ -808,7 +808,7 @@ public abstract class Chat {
      * @param node   Permission node
      * @param value  Value to set
      */
-    public void setPlayerInfoString(String world, OfflinePlayer player, String node, String value) {
+    public void setPlayerInfoString(@Nullable String world, OfflinePlayer player, String node, String value) {
         setPlayerInfoString(world, player.getName(), node, value);
     }
 
@@ -821,7 +821,7 @@ public abstract class Chat {
      * Set a players informational node (String) value
      */
     @Deprecated(since = "1.4")
-    abstract public void setPlayerInfoString(String world, String player, String node, String value);
+    abstract public void setPlayerInfoString(@Nullable String world, String player, String node, String value);
 
     /**
      * @param world  World name
@@ -832,8 +832,8 @@ public abstract class Chat {
      * Set a players informational node (String) value
      */
     @Deprecated(since = "1.4")
-    public void setPlayerInfoString(World world, String player, String node, String value) {
-        setPlayerInfoString(world.getName(), player, node, value);
+    public void setPlayerInfoString(@Nullable World world, String player, String node, String value) {
+        setPlayerInfoString(world != null ? world.getName() : null, player, node, value);
     }
 
     /**
@@ -856,7 +856,7 @@ public abstract class Chat {
      * @param defaultValue Default value
      * @return Value
      */
-    abstract public String getGroupInfoString(String world, String group, String node, String defaultValue);
+    abstract public String getGroupInfoString(@Nullable String world, String group, String node, String defaultValue);
 
     /**
      * Set a players informational node (String) value
@@ -867,8 +867,8 @@ public abstract class Chat {
      * @param defaultValue Default value
      * @return Value
      */
-    public String getGroupInfoString(World world, String group, String node, String defaultValue) {
-        return getGroupInfoString(world.getName(), group, node, defaultValue);
+    public String getGroupInfoString(@Nullable World world, String group, String node, String defaultValue) {
+        return getGroupInfoString(world != null ? world.getName() : null, group, node, defaultValue);
     }
 
     /**
@@ -879,7 +879,7 @@ public abstract class Chat {
      * @param node  Permission node
      * @param value Value to set
      */
-    abstract public void setGroupInfoString(String world, String group, String node, String value);
+    abstract public void setGroupInfoString(@Nullable String world, String group, String node, String value);
 
     /**
      * Set a groups informational node (String) value
@@ -889,8 +889,8 @@ public abstract class Chat {
      * @param node  Permission node
      * @param value Value to set
      */
-    public void setGroupInfoString(World world, String group, String node, String value) {
-        setGroupInfoString(world.getName(), group, node, value);
+    public void setGroupInfoString(@Nullable World world, String group, String node, String value) {
+        setGroupInfoString(world != null ? world.getName() : null, group, node, value);
     }
 
     /**
@@ -901,7 +901,7 @@ public abstract class Chat {
      * @param group  Group name
      * @return Success or Failure
      */
-    public boolean playerInGroup(String world, OfflinePlayer player, String group) {
+    public boolean playerInGroup(@Nullable String world, OfflinePlayer player, String group) {
         return perms.playerInGroup(world, player, group);
     }
 
@@ -914,7 +914,7 @@ public abstract class Chat {
      * Check if player is member of a group.
      */
     @Deprecated(since = "1.4")
-    public boolean playerInGroup(String world, String player, String group) {
+    public boolean playerInGroup(@Nullable String world, String player, String group) {
         return perms.playerInGroup(world, player, group);
     }
 
@@ -927,8 +927,8 @@ public abstract class Chat {
      * Check if player is member of a group.
      */
     @Deprecated(since = "1.4")
-    public boolean playerInGroup(World world, String player, String group) {
-        return playerInGroup(world.getName(), player, group);
+    public boolean playerInGroup(@Nullable World world, String player, String group) {
+        return playerInGroup(world != null ? world.getName() : null, player, group);
     }
 
     /**
@@ -949,7 +949,7 @@ public abstract class Chat {
      * @param player OfflinePlayer
      * @return Array of groups
      */
-    public String[] getPlayerGroups(String world, OfflinePlayer player) {
+    public String[] getPlayerGroups(@Nullable String world, OfflinePlayer player) {
         return perms.getPlayerGroups(world, player);
     }
 
@@ -961,7 +961,7 @@ public abstract class Chat {
      * Gets the list of groups that this player has
      */
     @Deprecated(since = "1.4")
-    public String[] getPlayerGroups(String world, String player) {
+    public String[] getPlayerGroups(@Nullable String world, String player) {
         return perms.getPlayerGroups(world, player);
     }
 
@@ -973,8 +973,8 @@ public abstract class Chat {
      * Gets the list of groups that this player has
      */
     @Deprecated(since = "1.4")
-    public String[] getPlayerGroups(World world, String player) {
-        return getPlayerGroups(world.getName(), player);
+    public String[] getPlayerGroups(@Nullable World world, String player) {
+        return getPlayerGroups(world != null ? world.getName() : null, player);
     }
 
     /**
@@ -994,7 +994,7 @@ public abstract class Chat {
      * @param player OfflinePlayer
      * @return Players primary group
      */
-    public String getPrimaryGroup(String world, OfflinePlayer player) {
+    public String getPrimaryGroup(@Nullable String world, OfflinePlayer player) {
         return perms.getPrimaryGroup(world, player);
     }
 
@@ -1006,7 +1006,7 @@ public abstract class Chat {
      * Gets players primary group
      */
     @Deprecated(since = "1.4")
-    public String getPrimaryGroup(String world, String player) {
+    public String getPrimaryGroup(@Nullable String world, String player) {
         return perms.getPrimaryGroup(world, player);
     }
 
@@ -1018,8 +1018,8 @@ public abstract class Chat {
      * Gets players primary group
      */
     @Deprecated(since = "1.4")
-    public String getPrimaryGroup(World world, String player) {
-        return getPrimaryGroup(world.getName(), player);
+    public String getPrimaryGroup(@Nullable World world, String player) {
+        return getPrimaryGroup(world != null ? world.getName() : null, player);
     }
 
     /**

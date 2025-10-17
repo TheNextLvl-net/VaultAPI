@@ -28,7 +28,6 @@ import java.util.logging.Logger;
 
 /**
  * The main Permission API - allows for group and player based permission tests
- *
  */
 public abstract class Permission {
 
@@ -60,10 +59,7 @@ public abstract class Permission {
      * @deprecated As of VaultAPI 1.4 use {@link #playerHas(String, OfflinePlayer, String)} instead.
      */
     @Deprecated(since = "1.4")
-    public boolean has(String world, String player, String permission) {
-        if (world == null) {
-            return playerHas((String) null, player, permission);
-        }
+    public boolean has(@Nullable String world, String player, String permission) {
         return playerHas(world, player, permission);
     }
 
@@ -71,11 +67,8 @@ public abstract class Permission {
      * @deprecated As of VaultAPI 1.4 use {@link #playerHas(String, OfflinePlayer, String)} instead.
      */
     @Deprecated(since = "1.4")
-    public boolean has(World world, String player, String permission) {
-        if (world == null) {
-            return playerHas((String) null, player, permission);
-        }
-        return playerHas(world.getName(), player, permission);
+    public boolean has(@Nullable World world, String player, String permission) {
+        return playerHas(world != null ? world.getName() : null, player, permission);
     }
 
     /**
@@ -108,17 +101,14 @@ public abstract class Permission {
      * @deprecated As of VaultAPI 1.4 use {@link #playerHas(String, OfflinePlayer, String)} instead.
      */
     @Deprecated(since = "1.4")
-    abstract public boolean playerHas(String world, String player, String permission);
+    abstract public boolean playerHas(@Nullable String world, String player, String permission);
 
     /**
      * @deprecated As of VaultAPI 1.4 use {@link #playerHas(String, OfflinePlayer, String)} instead.
      */
     @Deprecated(since = "1.4")
-    public boolean playerHas(World world, String player, String permission) {
-        if (world == null) {
-            return playerHas((String) null, player, permission);
-        }
-        return playerHas(world.getName(), player, permission);
+    public boolean playerHas(@Nullable World world, String player, String permission) {
+        return playerHas(world != null ? world.getName() : null, player, permission);
     }
 
     /**
@@ -131,11 +121,8 @@ public abstract class Permission {
      * @param permission Permission node
      * @return Success or Failure
      */
-    public boolean playerHas(String world, OfflinePlayer player, String permission) {
-        if (world == null) {
-            return has((String) null, player.getName(), permission);
-        }
-        return has(world, player.getName(), permission);
+    public boolean playerHas(@Nullable String world, OfflinePlayer player, String permission) {
+        return player.getName() != null && has(world, player.getName(), permission);
     }
 
     /**
@@ -162,17 +149,14 @@ public abstract class Permission {
      * But May return odd values if the servers registered permission system does not have a global permission store.
      */
     @Deprecated(since = "1.4")
-    abstract public boolean playerAdd(String world, String player, String permission);
+    abstract public boolean playerAdd(@Nullable String world, String player, String permission);
 
     /**
      * @deprecated As of VaultAPI 1.4 use {@link #playerAdd(String, OfflinePlayer, String)} instead.
      */
     @Deprecated(since = "1.4")
-    public boolean playerAdd(World world, String player, String permission) {
-        if (world == null) {
-            return playerAdd((String) null, player, permission);
-        }
-        return playerAdd(world.getName(), player, permission);
+    public boolean playerAdd(@Nullable World world, String player, String permission) {
+        return playerAdd(world != null ? world.getName() : null, player, permission);
     }
 
     /**
@@ -185,11 +169,8 @@ public abstract class Permission {
      * @param permission Permission node
      * @return Success or Failure
      */
-    public boolean playerAdd(String world, OfflinePlayer player, String permission) {
-        if (world == null) {
-            return playerAdd((String) null, player.getName(), permission);
-        }
-        return playerAdd(world, player.getName(), permission);
+    public boolean playerAdd(@Nullable String world, OfflinePlayer player, String permission) {
+        return player.getName() != null && playerAdd(world, player.getName(), permission);
     }
 
     /**
@@ -214,11 +195,8 @@ public abstract class Permission {
      * @param permission Permission node
      * @return Success or Failure
      */
-    public boolean playerAddTransient(OfflinePlayer player, String permission) throws UnsupportedOperationException {
-        if (player.isOnline()) {
-            return playerAddTransient((Player) player, permission);
-        }
-        throw new UnsupportedOperationException(getName() + " does not support offline player transient permissions!");
+    public boolean playerAddTransient(OfflinePlayer player, String permission) {
+        return player instanceof Player online && playerAddTransient(online, permission);
     }
 
     /**
@@ -252,7 +230,7 @@ public abstract class Permission {
      * @param permission to test
      * @return Success or Failure
      */
-    public boolean playerAddTransient(String worldName, OfflinePlayer player, String permission) {
+    public boolean playerAddTransient(@Nullable String worldName, OfflinePlayer player, String permission) {
         return playerAddTransient(player, permission);
     }
 
@@ -265,7 +243,7 @@ public abstract class Permission {
      * @param permission to check for
      * @return Success or Failure
      */
-    public boolean playerAddTransient(String worldName, Player player, String permission) {
+    public boolean playerAddTransient(@Nullable String worldName, Player player, String permission) {
         return playerAddTransient(player, permission);
     }
 
@@ -278,7 +256,7 @@ public abstract class Permission {
      * @param permission to remove
      * @return Success or Failure
      */
-    public boolean playerRemoveTransient(String worldName, OfflinePlayer player, String permission) {
+    public boolean playerRemoveTransient(@Nullable String worldName, OfflinePlayer player, String permission) {
         return playerRemoveTransient(player, permission);
     }
 
@@ -291,7 +269,7 @@ public abstract class Permission {
      * @param permission to check for
      * @return Success or Failure
      */
-    public boolean playerRemoveTransient(String worldName, Player player, String permission) {
+    public boolean playerRemoveTransient(@Nullable String worldName, Player player, String permission) {
         return playerRemoveTransient((OfflinePlayer) player, permission);
     }
 
@@ -299,7 +277,7 @@ public abstract class Permission {
      * @deprecated As of VaultAPI 1.4 use {@link #playerRemove(String, OfflinePlayer, String)} instead.
      */
     @Deprecated(since = "1.4")
-    abstract public boolean playerRemove(String world, String player, String permission);
+    abstract public boolean playerRemove(@Nullable String world, String player, String permission);
 
     /**
      * Remove permission from a player.
@@ -311,11 +289,8 @@ public abstract class Permission {
      * @param permission Permission node
      * @return Success or Failure
      */
-    public boolean playerRemove(String world, OfflinePlayer player, String permission) {
-        if (world == null) {
-            return playerRemove((String) null, player.getName(), permission);
-        }
-        return playerRemove(world, player.getName(), permission);
+    public boolean playerRemove(@Nullable String world, OfflinePlayer player, String permission) {
+        return player.getName() != null && playerRemove(world, player.getName(), permission);
     }
 
     /**
@@ -329,11 +304,8 @@ public abstract class Permission {
      * @return Success or Failure
      */
     @Deprecated
-    public boolean playerRemove(World world, String player, String permission) {
-        if (world == null) {
-            return playerRemove((String) null, player, permission);
-        }
-        return playerRemove(world.getName(), player, permission);
+    public boolean playerRemove(@Nullable World world, String player, String permission) {
+        return playerRemove(world != null ? world.getName() : null, player, permission);
     }
 
     /**
@@ -360,11 +332,7 @@ public abstract class Permission {
      * @return Success or Failure
      */
     public boolean playerRemoveTransient(OfflinePlayer player, String permission) {
-        if (player.isOnline()) {
-            return playerRemoveTransient((Player) player, permission);
-        } else {
-            return false;
-        }
+        return player instanceof Player online && playerRemoveTransient(online, permission);
     }
 
     /**
@@ -394,7 +362,7 @@ public abstract class Permission {
      * @param permission Permission node
      * @return Success or Failure
      */
-    abstract public boolean groupHas(String world, String group, String permission);
+    abstract public boolean groupHas(@Nullable String world, String group, String permission);
 
     /**
      * Checks if group has a permission node.
@@ -406,11 +374,8 @@ public abstract class Permission {
      * @param permission Permission node
      * @return Success or Failure
      */
-    public boolean groupHas(World world, String group, String permission) {
-        if (world == null) {
-            return groupHas((String) null, group, permission);
-        }
-        return groupHas(world.getName(), group, permission);
+    public boolean groupHas(@Nullable World world, String group, String permission) {
+        return groupHas(world != null ? world.getName() : null, group, permission);
     }
 
     /**
@@ -423,7 +388,7 @@ public abstract class Permission {
      * @param permission Permission node
      * @return Success or Failure
      */
-    abstract public boolean groupAdd(String world, String group, String permission);
+    abstract public boolean groupAdd(@Nullable String world, String group, String permission);
 
     /**
      * Add permission to a group.
@@ -435,11 +400,8 @@ public abstract class Permission {
      * @param permission Permission node
      * @return Success or Failure
      */
-    public boolean groupAdd(World world, String group, String permission) {
-        if (world == null) {
-            return groupAdd((String) null, group, permission);
-        }
-        return groupAdd(world.getName(), group, permission);
+    public boolean groupAdd(@Nullable World world, String group, String permission) {
+        return groupAdd(world != null ? world.getName() : null, group, permission);
     }
 
     /**
@@ -452,7 +414,7 @@ public abstract class Permission {
      * @param permission Permission node
      * @return Success or Failure
      */
-    abstract public boolean groupRemove(String world, String group, String permission);
+    abstract public boolean groupRemove(@Nullable String world, String group, String permission);
 
     /**
      * Remove permission from a group.
@@ -464,28 +426,22 @@ public abstract class Permission {
      * @param permission Permission node
      * @return Success or Failure
      */
-    public boolean groupRemove(World world, String group, String permission) {
-        if (world == null) {
-            return groupRemove((String) null, group, permission);
-        }
-        return groupRemove(world.getName(), group, permission);
+    public boolean groupRemove(@Nullable World world, String group, String permission) {
+        return groupRemove(world != null ? world.getName() : null, group, permission);
     }
 
     /**
      * @deprecated As of VaultAPI 1.4 use {@link #playerInGroup(String, OfflinePlayer, String)} instead.
      */
     @Deprecated(since = "1.4")
-    abstract public boolean playerInGroup(String world, String player, String group);
+    abstract public boolean playerInGroup(@Nullable String world, String player, String group);
 
     /**
      * @deprecated As of VaultAPI 1.4 use {@link #playerInGroup(String, OfflinePlayer, String)} instead.
      */
     @Deprecated(since = "1.4")
-    public boolean playerInGroup(World world, String player, String group) {
-        if (world == null) {
-            return playerInGroup((String) null, player, group);
-        }
-        return playerInGroup(world.getName(), player, group);
+    public boolean playerInGroup(@Nullable World world, String player, String group) {
+        return playerInGroup(world != null ? world.getName() : null, player, group);
     }
 
     /**
@@ -498,11 +454,8 @@ public abstract class Permission {
      * @param group  Group name
      * @return Success or Failure
      */
-    public boolean playerInGroup(String world, OfflinePlayer player, String group) {
-        if (world == null) {
-            return playerInGroup((String) null, player.getName(), group);
-        }
-        return playerInGroup(world, player.getName(), group);
+    public boolean playerInGroup(@Nullable String world, OfflinePlayer player, String group) {
+        return player.getName() != null && playerInGroup(world, player.getName(), group);
     }
 
     /**
@@ -522,17 +475,14 @@ public abstract class Permission {
      * @deprecated As of VaultAPI 1.4 use {@link #playerAddGroup(String, OfflinePlayer, String)} instead.
      */
     @Deprecated(since = "1.4")
-    abstract public boolean playerAddGroup(String world, String player, String group);
+    abstract public boolean playerAddGroup(@Nullable String world, String player, String group);
 
     /**
      * @deprecated As of VaultAPI 1.4 use {@link #playerAddGroup(String, OfflinePlayer, String)} instead.
      */
     @Deprecated(since = "1.4")
-    public boolean playerAddGroup(World world, String player, String group) {
-        if (world == null) {
-            return playerAddGroup((String) null, player, group);
-        }
-        return playerAddGroup(world.getName(), player, group);
+    public boolean playerAddGroup(@Nullable World world, String player, String group) {
+        return playerAddGroup(world != null ? world.getName() : null, player, group);
     }
 
     /**
@@ -545,11 +495,8 @@ public abstract class Permission {
      * @param group  Group name
      * @return Success or Failure
      */
-    public boolean playerAddGroup(String world, OfflinePlayer player, String group) {
-        if (world == null) {
-            return playerAddGroup((String) null, player.getName(), group);
-        }
-        return playerAddGroup(world, player.getName(), group);
+    public boolean playerAddGroup(@Nullable String world, OfflinePlayer player, String group) {
+        return player.getName() != null && playerAddGroup(world, player.getName(), group);
     }
 
     /**
@@ -569,17 +516,14 @@ public abstract class Permission {
      * @deprecated As of VaultAPI 1.4 use {@link #playerRemoveGroup(String, OfflinePlayer, String)} instead.
      */
     @Deprecated(since = "1.4")
-    abstract public boolean playerRemoveGroup(String world, String player, String group);
+    abstract public boolean playerRemoveGroup(@Nullable String world, String player, String group);
 
     /**
      * @deprecated As of VaultAPI 1.4 use {@link #playerRemoveGroup(String, OfflinePlayer, String)} instead.
      */
     @Deprecated(since = "1.4")
-    public boolean playerRemoveGroup(World world, String player, String group) {
-        if (world == null) {
-            return playerRemoveGroup((String) null, player, group);
-        }
-        return playerRemoveGroup(world.getName(), player, group);
+    public boolean playerRemoveGroup(@Nullable World world, String player, String group) {
+        return playerRemoveGroup(world != null ? world.getName() : null, player, group);
     }
 
     /**
@@ -592,11 +536,8 @@ public abstract class Permission {
      * @param group  Group name
      * @return Success or Failure
      */
-    public boolean playerRemoveGroup(String world, OfflinePlayer player, String group) {
-        if (world == null) {
-            return playerRemoveGroup((String) null, player.getName(), group);
-        }
-        return playerRemoveGroup(world, player.getName(), group);
+    public boolean playerRemoveGroup(@Nullable String world, OfflinePlayer player, String group) {
+        return player.getName() != null && playerRemoveGroup(world, player.getName(), group);
     }
 
     /**
@@ -616,17 +557,14 @@ public abstract class Permission {
      * @deprecated As of VaultAPI 1.4 use {@link #getPlayerGroups(String, OfflinePlayer)} instead.
      */
     @Deprecated(since = "1.4")
-    abstract public String[] getPlayerGroups(String world, String player);
+    abstract public String[] getPlayerGroups(@Nullable String world, String player);
 
     /**
      * @deprecated As of VaultAPI 1.4 use {@link #getPlayerGroups(String, OfflinePlayer)} instead.
      */
     @Deprecated(since = "1.4")
-    public String[] getPlayerGroups(World world, String player) {
-        if (world == null) {
-            return getPlayerGroups((String) null, player);
-        }
-        return getPlayerGroups(world.getName(), player);
+    public String[] getPlayerGroups(@Nullable World world, String player) {
+        return getPlayerGroups(world != null ? world.getName() : null, player);
     }
 
     /**
@@ -638,7 +576,7 @@ public abstract class Permission {
      * @param player OfflinePlayer
      * @return Array of groups
      */
-    public String[] getPlayerGroups(String world, OfflinePlayer player) {
+    public String[] getPlayerGroups(@Nullable String world, OfflinePlayer player) {
         return getPlayerGroups(world, player.getName());
     }
 
@@ -658,17 +596,14 @@ public abstract class Permission {
      * @deprecated As of VaultAPI 1.4 use {@link #getPrimaryGroup(String, OfflinePlayer)} instead.
      */
     @Deprecated(since = "1.4")
-    abstract public String getPrimaryGroup(String world, String player);
+    abstract public String getPrimaryGroup(@Nullable String world, String player);
 
     /**
      * @deprecated As of VaultAPI 1.4 use {@link #getPrimaryGroup(String, OfflinePlayer)} instead.
      */
     @Deprecated(since = "1.4")
-    public String getPrimaryGroup(World world, String player) {
-        if (world == null) {
-            return getPrimaryGroup((String) null, player);
-        }
-        return getPrimaryGroup(world.getName(), player);
+    public String getPrimaryGroup(@Nullable World world, String player) {
+        return getPrimaryGroup(world != null ? world.getName() : null, player);
     }
 
     /**
@@ -680,7 +615,7 @@ public abstract class Permission {
      * @param player to get from
      * @return Players primary group
      */
-    public String getPrimaryGroup(String world, OfflinePlayer player) {
+    public String getPrimaryGroup(@Nullable String world, OfflinePlayer player) {
         return getPrimaryGroup(world, player.getName());
     }
 

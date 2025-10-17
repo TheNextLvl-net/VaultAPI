@@ -1,20 +1,19 @@
 package net.milkbowl.vault.economy;
 
 import org.bukkit.OfflinePlayer;
+import org.jspecify.annotations.Nullable;
 
 @SuppressWarnings("deprecation")
 public abstract class AbstractEconomy implements Economy {
 
     @Override
     public boolean hasAccount(OfflinePlayer player) {
-        if (player.getName() == null) return false;
-        return hasAccount(player.getName());
+        return player.getName() != null && hasAccount(player.getName());
     }
 
     @Override
-    public boolean hasAccount(OfflinePlayer player, String worldName) {
-        if (player.getName() == null) return false;
-        return hasAccount(player.getName(), worldName);
+    public boolean hasAccount(OfflinePlayer player, @Nullable String worldName) {
+        return player.getName() != null && hasAccount(player.getName(), worldName);
     }
 
     @Override
@@ -23,20 +22,18 @@ public abstract class AbstractEconomy implements Economy {
     }
 
     @Override
-    public double getBalance(OfflinePlayer player, String world) {
+    public double getBalance(OfflinePlayer player, @Nullable String world) {
         return getBalance(player.getName(), world);
     }
 
     @Override
     public boolean has(OfflinePlayer player, double amount) {
-        if (player.getName() == null) return false;
-        return has(player.getName(), amount);
+        return player.getName() != null && has(player.getName(), amount);
     }
 
     @Override
-    public boolean has(OfflinePlayer player, String worldName, double amount) {
-        if (player.getName() == null) return false;
-        return has(player.getName(), worldName, amount);
+    public boolean has(OfflinePlayer player, @Nullable String worldName, double amount) {
+        return player.getName() != null && has(player.getName(), worldName, amount);
     }
 
     @Override
@@ -45,7 +42,7 @@ public abstract class AbstractEconomy implements Economy {
     }
 
     @Override
-    public EconomyResponse withdrawPlayer(OfflinePlayer player, String worldName, double amount) {
+    public EconomyResponse withdrawPlayer(OfflinePlayer player, @Nullable String worldName, double amount) {
         return withdrawPlayer(player.getName(), worldName, amount);
     }
 
@@ -55,7 +52,7 @@ public abstract class AbstractEconomy implements Economy {
     }
 
     @Override
-    public EconomyResponse depositPlayer(OfflinePlayer player, String worldName, double amount) {
+    public EconomyResponse depositPlayer(OfflinePlayer player, @Nullable String worldName, double amount) {
         return depositPlayer(player.getName(), worldName, amount);
     }
 
@@ -76,12 +73,12 @@ public abstract class AbstractEconomy implements Economy {
 
     @Override
     public boolean createPlayerAccount(OfflinePlayer player) {
-        return createPlayerAccount(player.getName());
+        return player.getName() != null && createPlayerAccount(player.getName());
     }
 
     @Override
-    public boolean createPlayerAccount(OfflinePlayer player, String worldName) {
-        return createPlayerAccount(player.getName(), worldName);
+    public boolean createPlayerAccount(OfflinePlayer player, @Nullable String worldName) {
+        return player.getName() != null && createPlayerAccount(player.getName(), worldName);
     }
 
 }
