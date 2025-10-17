@@ -4,14 +4,14 @@ How to include the API with Maven:
 ```xml
 <repositories>
     <repository>
-        <id>jitpack.io</id>
-        <url>https://jitpack.io</url>
+        <id>thenextlvl-releases</id>
+        <url>https://repo.thenextlvl.net/releases</url>
     </repository>
 </repositories>
 <dependencies>
     <dependency>
-        <groupId>com.github.MilkBowl</groupId>
-        <artifactId>VaultAPI</artifactId>
+        <groupId>net.thenextlvl</groupId>
+        <artifactId>vault-api</artifactId>
         <version>1.7</version>
         <scope>provided</scope>
     </dependency>
@@ -21,10 +21,10 @@ How to include the API with Maven:
 How to include the API with Gradle:
 ```groovy
 repositories {
-    maven { url 'https://jitpack.io' }
+    maven { url 'https://repo.thenextlvl.net/releases' }
 }
 dependencies {
-    compileOnly "com.github.MilkBowl:VaultAPI:1.7"
+    compileOnly "net.thenextlvl:vault-api:1.7"
 }
 ```
 
