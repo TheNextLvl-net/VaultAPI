@@ -22,7 +22,7 @@ tasks.compileJava {
 }
 
 group = "net.thenextlvl.vault"
-version = "1.7"
+version = "1.7.1"
 
 tasks.withType<Javadoc>().configureEach {
     val options = options as StandardJavadocDocletOptions

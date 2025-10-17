@@ -13,7 +13,7 @@ How to include the API with Maven:
     <dependency>
         <groupId>net.thenextlvl</groupId>
         <artifactId>vault-api</artifactId>
-        <version>1.7</version>
+        <version>1.7.1</version>
         <scope>provided</scope>
     </dependency>
 </dependencies>
@@ -26,7 +26,7 @@ repositories {
     maven { url 'https://repo.thenextlvl.net/releases' }
 }
 dependencies {
-    compileOnly "net.thenextlvl:vault-api:1.7"
+    compileOnly "net.thenextlvl:vault-api:1.7.1"
 }
 ```
 
