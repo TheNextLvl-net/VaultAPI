@@ -22,6 +22,7 @@ import org.bukkit.entity.Player;
 import org.bukkit.permissions.PermissionAttachment;
 import org.bukkit.permissions.PermissionAttachmentInfo;
 import org.bukkit.plugin.Plugin;
+import org.jspecify.annotations.Nullable;
 
 import java.util.logging.Logger;
 
@@ -32,7 +33,7 @@ import java.util.logging.Logger;
 public abstract class Permission {
 
     protected static final Logger log = Logger.getLogger("Minecraft");
-    protected Plugin plugin = null;
+    protected @Nullable Plugin plugin = null;
 
     /**
      * Gets name of permission method
@@ -58,7 +59,7 @@ public abstract class Permission {
     /**
      * @deprecated As of VaultAPI 1.4 use {@link #playerHas(String, OfflinePlayer, String)} instead.
      */
-    @Deprecated
+    @Deprecated(since = "1.4")
     public boolean has(String world, String player, String permission) {
         if (world == null) {
             return playerHas((String) null, player, permission);
@@ -69,7 +70,7 @@ public abstract class Permission {
     /**
      * @deprecated As of VaultAPI 1.4 use {@link #playerHas(String, OfflinePlayer, String)} instead.
      */
-    @Deprecated
+    @Deprecated(since = "1.4")
     public boolean has(World world, String player, String permission) {
         if (world == null) {
             return playerHas((String) null, player, permission);
@@ -106,13 +107,13 @@ public abstract class Permission {
     /**
      * @deprecated As of VaultAPI 1.4 use {@link #playerHas(String, OfflinePlayer, String)} instead.
      */
-    @Deprecated
+    @Deprecated(since = "1.4")
     abstract public boolean playerHas(String world, String player, String permission);
 
     /**
      * @deprecated As of VaultAPI 1.4 use {@link #playerHas(String, OfflinePlayer, String)} instead.
      */
-    @Deprecated
+    @Deprecated(since = "1.4")
     public boolean playerHas(World world, String player, String permission) {
         if (world == null) {
             return playerHas((String) null, player, permission);
@@ -160,13 +161,13 @@ public abstract class Permission {
      * Supports NULL value for World if the permission system registered supports global permissions.
      * But May return odd values if the servers registered permission system does not have a global permission store.
      */
-    @Deprecated
+    @Deprecated(since = "1.4")
     abstract public boolean playerAdd(String world, String player, String permission);
 
     /**
      * @deprecated As of VaultAPI 1.4 use {@link #playerAdd(String, OfflinePlayer, String)} instead.
      */
-    @Deprecated
+    @Deprecated(since = "1.4")
     public boolean playerAdd(World world, String player, String permission) {
         if (world == null) {
             return playerAdd((String) null, player, permission);
@@ -297,7 +298,7 @@ public abstract class Permission {
     /**
      * @deprecated As of VaultAPI 1.4 use {@link #playerRemove(String, OfflinePlayer, String)} instead.
      */
-    @Deprecated
+    @Deprecated(since = "1.4")
     abstract public boolean playerRemove(String world, String player, String permission);
 
     /**
@@ -473,13 +474,13 @@ public abstract class Permission {
     /**
      * @deprecated As of VaultAPI 1.4 use {@link #playerInGroup(String, OfflinePlayer, String)} instead.
      */
-    @Deprecated
+    @Deprecated(since = "1.4")
     abstract public boolean playerInGroup(String world, String player, String group);
 
     /**
      * @deprecated As of VaultAPI 1.4 use {@link #playerInGroup(String, OfflinePlayer, String)} instead.
      */
-    @Deprecated
+    @Deprecated(since = "1.4")
     public boolean playerInGroup(World world, String player, String group) {
         if (world == null) {
             return playerInGroup((String) null, player, group);
@@ -520,13 +521,13 @@ public abstract class Permission {
     /**
      * @deprecated As of VaultAPI 1.4 use {@link #playerAddGroup(String, OfflinePlayer, String)} instead.
      */
-    @Deprecated
+    @Deprecated(since = "1.4")
     abstract public boolean playerAddGroup(String world, String player, String group);
 
     /**
      * @deprecated As of VaultAPI 1.4 use {@link #playerAddGroup(String, OfflinePlayer, String)} instead.
      */
-    @Deprecated
+    @Deprecated(since = "1.4")
     public boolean playerAddGroup(World world, String player, String group) {
         if (world == null) {
             return playerAddGroup((String) null, player, group);
@@ -567,13 +568,13 @@ public abstract class Permission {
     /**
      * @deprecated As of VaultAPI 1.4 use {@link #playerRemoveGroup(String, OfflinePlayer, String)} instead.
      */
-    @Deprecated
+    @Deprecated(since = "1.4")
     abstract public boolean playerRemoveGroup(String world, String player, String group);
 
     /**
      * @deprecated As of VaultAPI 1.4 use {@link #playerRemoveGroup(String, OfflinePlayer, String)} instead.
      */
-    @Deprecated
+    @Deprecated(since = "1.4")
     public boolean playerRemoveGroup(World world, String player, String group) {
         if (world == null) {
             return playerRemoveGroup((String) null, player, group);
@@ -614,13 +615,13 @@ public abstract class Permission {
     /**
      * @deprecated As of VaultAPI 1.4 use {@link #getPlayerGroups(String, OfflinePlayer)} instead.
      */
-    @Deprecated
+    @Deprecated(since = "1.4")
     abstract public String[] getPlayerGroups(String world, String player);
 
     /**
      * @deprecated As of VaultAPI 1.4 use {@link #getPlayerGroups(String, OfflinePlayer)} instead.
      */
-    @Deprecated
+    @Deprecated(since = "1.4")
     public String[] getPlayerGroups(World world, String player) {
         if (world == null) {
             return getPlayerGroups((String) null, player);
@@ -656,13 +657,13 @@ public abstract class Permission {
     /**
      * @deprecated As of VaultAPI 1.4 use {@link #getPrimaryGroup(String, OfflinePlayer)} instead.
      */
-    @Deprecated
+    @Deprecated(since = "1.4")
     abstract public String getPrimaryGroup(String world, String player);
 
     /**
      * @deprecated As of VaultAPI 1.4 use {@link #getPrimaryGroup(String, OfflinePlayer)} instead.
      */
-    @Deprecated
+    @Deprecated(since = "1.4")
     public String getPrimaryGroup(World world, String player) {
         if (world == null) {
             return getPrimaryGroup((String) null, player);

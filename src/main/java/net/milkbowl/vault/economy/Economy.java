@@ -86,7 +86,7 @@ public interface Economy {
      *
      * @deprecated As of VaultAPI 1.4 use {@link #hasAccount(OfflinePlayer)} instead.
      */
-    @Deprecated
+    @Deprecated(since = "1.4")
     boolean hasAccount(String playerName);
 
     /**
@@ -102,7 +102,7 @@ public interface Economy {
     /**
      * @deprecated As of VaultAPI 1.4 use {@link #hasAccount(OfflinePlayer, String)} instead.
      */
-    @Deprecated
+    @Deprecated(since = "1.4")
     boolean hasAccount(String playerName, String worldName);
 
     /**
@@ -119,7 +119,7 @@ public interface Economy {
     /**
      * @deprecated As of VaultAPI 1.4 use {@link #getBalance(OfflinePlayer)} instead.
      */
-    @Deprecated
+    @Deprecated(since = "1.4")
     double getBalance(String playerName);
 
     /**
@@ -133,7 +133,7 @@ public interface Economy {
     /**
      * @deprecated As of VaultAPI 1.4 use {@link #getBalance(OfflinePlayer, String)} instead.
      */
-    @Deprecated
+    @Deprecated(since = "1.4")
     double getBalance(String playerName, String world);
 
     /**
@@ -149,7 +149,7 @@ public interface Economy {
     /**
      * @deprecated As of VaultAPI 1.4 use {@link #has(OfflinePlayer, double)} instead.
      */
-    @Deprecated
+    @Deprecated(since = "1.4")
     boolean has(String playerName, double amount);
 
     /**
@@ -162,9 +162,9 @@ public interface Economy {
     boolean has(OfflinePlayer player, double amount);
 
     /**
-     * @deprecated As of VaultAPI 1.4 use @{link {@link #has(OfflinePlayer, String, double)} instead.
+     * @deprecated As of VaultAPI 1.4 use {@link #has(OfflinePlayer, String, double)} instead.
      */
-    @Deprecated
+    @Deprecated(since = "1.4")
     boolean has(String playerName, String worldName, double amount);
 
     /**
@@ -181,7 +181,7 @@ public interface Economy {
     /**
      * @deprecated As of VaultAPI 1.4 use {@link #withdrawPlayer(OfflinePlayer, double)} instead.
      */
-    @Deprecated
+    @Deprecated(since = "1.4")
     EconomyResponse withdrawPlayer(String playerName, double amount);
 
     /**
@@ -196,7 +196,7 @@ public interface Economy {
     /**
      * @deprecated As of VaultAPI 1.4 use {@link #withdrawPlayer(OfflinePlayer, String, double)} instead.
      */
-    @Deprecated
+    @Deprecated(since = "1.4")
     EconomyResponse withdrawPlayer(String playerName, String worldName, double amount);
 
     /**
@@ -213,7 +213,7 @@ public interface Economy {
     /**
      * @deprecated As of VaultAPI 1.4 use {@link #depositPlayer(OfflinePlayer, double)} instead.
      */
-    @Deprecated
+    @Deprecated(since = "1.4")
     EconomyResponse depositPlayer(String playerName, double amount);
 
     /**
@@ -228,7 +228,7 @@ public interface Economy {
     /**
      * @deprecated As of VaultAPI 1.4 use {@link #depositPlayer(OfflinePlayer, String, double)} instead.
      */
-    @Deprecated
+    @Deprecated(since = "1.4")
     EconomyResponse depositPlayer(String playerName, String worldName, double amount);
 
     /**
@@ -243,9 +243,9 @@ public interface Economy {
     EconomyResponse depositPlayer(OfflinePlayer player, String worldName, double amount);
 
     /**
-     * @deprecated As of VaultAPI 1.4 use {{@link #createBank(String, OfflinePlayer)} instead.
+     * @deprecated As of VaultAPI 1.4 use {@link #createBank(String, OfflinePlayer)} instead.
      */
-    @Deprecated
+    @Deprecated(since = "1.4")
     EconomyResponse createBank(String name, String player);
 
     /**
@@ -301,9 +301,9 @@ public interface Economy {
     EconomyResponse bankDeposit(String name, double amount);
 
     /**
-     * @deprecated As of VaultAPI 1.4 use {{@link #isBankOwner(String, OfflinePlayer)} instead.
+     * @deprecated As of VaultAPI 1.4 use {@link #isBankOwner(String, OfflinePlayer)} instead.
      */
-    @Deprecated
+    @Deprecated(since = "1.4")
     EconomyResponse isBankOwner(String name, String playerName);
 
     /**
@@ -316,9 +316,9 @@ public interface Economy {
     EconomyResponse isBankOwner(String name, OfflinePlayer player);
 
     /**
-     * @deprecated As of VaultAPI 1.4 use {{@link #isBankMember(String, OfflinePlayer)} instead.
+     * @deprecated As of VaultAPI 1.4 use {@link #isBankMember(String, OfflinePlayer)} instead.
      */
-    @Deprecated
+    @Deprecated(since = "1.4")
     EconomyResponse isBankMember(String name, String playerName);
 
     /**
@@ -338,9 +338,9 @@ public interface Economy {
     List<String> getBanks();
 
     /**
-     * @deprecated As of VaultAPI 1.4 use {{@link #createPlayerAccount(OfflinePlayer)} instead.
+     * @deprecated As of VaultAPI 1.4 use {@link #createPlayerAccount(OfflinePlayer)} instead.
      */
-    @Deprecated
+    @Deprecated(since = "1.4")
     boolean createPlayerAccount(String playerName);
 
     /**
@@ -352,9 +352,9 @@ public interface Economy {
     boolean createPlayerAccount(OfflinePlayer player);
 
     /**
-     * @deprecated As of VaultAPI 1.4 use {{@link #createPlayerAccount(OfflinePlayer, String)} instead.
+     * @deprecated As of VaultAPI 1.4 use {@link #createPlayerAccount(OfflinePlayer, String)} instead.
      */
-    @Deprecated
+    @Deprecated(since = "1.4")
     boolean createPlayerAccount(String playerName, String worldName);
 
     /**

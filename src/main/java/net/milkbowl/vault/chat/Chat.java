@@ -50,11 +50,11 @@ public abstract class Chat {
      * @param world  World name
      * @param player Player name
      * @return Prefix
-     * @deprecated As of VaultAPI 1.4 use {{@link #getPlayerPrefix(String, OfflinePlayer)} instead.
+     * @deprecated As of VaultAPI 1.4 use {@link #getPlayerPrefix(String, OfflinePlayer)} instead.
      * <p>
      * Get players prefix
      */
-    @Deprecated
+    @Deprecated(since = "1.4")
     abstract public String getPlayerPrefix(String world, String player);
 
     /**
@@ -73,11 +73,11 @@ public abstract class Chat {
      * @param world  World Object
      * @param player Player name
      * @return Prefix
-     * @deprecated As of VaultAPI 1.4 use {{@link #getPlayerPrefix(String, OfflinePlayer)} instead.
+     * @deprecated As of VaultAPI 1.4 use {@link #getPlayerPrefix(String, OfflinePlayer)} instead.
      * <p>
      * Get players prefix
      */
-    @Deprecated
+    @Deprecated(since = "1.4")
     public String getPlayerPrefix(World world, String player) {
         return getPlayerPrefix(world.getName(), player);
     }
@@ -97,11 +97,11 @@ public abstract class Chat {
      * @param world  World name
      * @param player Player name
      * @param prefix Prefix
-     * @deprecated As of VaultAPI 1.4 use {{@link #setPlayerPrefix(String, OfflinePlayer, String)} instead.
+     * @deprecated As of VaultAPI 1.4 use {@link #setPlayerPrefix(String, OfflinePlayer, String)} instead.
      * <p>
      * Set players prefix
      */
-    @Deprecated
+    @Deprecated(since = "1.4")
     abstract public void setPlayerPrefix(String world, String player, String prefix);
 
     /**
@@ -120,11 +120,11 @@ public abstract class Chat {
      * @param world  World Object
      * @param player Player name
      * @param prefix Prefix
-     * @deprecated As of VaultAPI 1.4 use {{@link #setPlayerPrefix(String, OfflinePlayer, String)} instead.
+     * @deprecated As of VaultAPI 1.4 use {@link #setPlayerPrefix(String, OfflinePlayer, String)} instead.
      * <p>
      * Set players prefix in the given world.
      */
-    @Deprecated
+    @Deprecated(since = "1.4")
     public void setPlayerPrefix(World world, String player, String prefix) {
         setPlayerPrefix(world.getName(), player, prefix);
     }
@@ -143,11 +143,11 @@ public abstract class Chat {
      * @param world  World name
      * @param player Player name
      * @return Suffix
-     * @deprecated As of VaultAPI 1.4 use {{@link #getPlayerSuffix(String, OfflinePlayer)} instead.
+     * @deprecated As of VaultAPI 1.4 use {@link #getPlayerSuffix(String, OfflinePlayer)} instead.
      * <p>
      * Get players suffix
      */
-    @Deprecated
+    @Deprecated(since = "1.4")
     abstract public String getPlayerSuffix(String world, String player);
 
     /**
@@ -165,11 +165,11 @@ public abstract class Chat {
      * @param world  World Object
      * @param player Player name
      * @return Suffix
-     * @deprecated As of VaultAPI 1.4 use {{@link #getPlayerSuffix(String, OfflinePlayer)} instead.
+     * @deprecated As of VaultAPI 1.4 use {@link #getPlayerSuffix(String, OfflinePlayer)} instead.
      * <p>
      * Get players suffix
      */
-    @Deprecated
+    @Deprecated(since = "1.4")
     public String getPlayerSuffix(World world, String player) {
         return getPlayerSuffix(world.getName(), player);
     }
@@ -188,11 +188,11 @@ public abstract class Chat {
      * @param world  World name
      * @param player Player name
      * @param suffix Suffix
-     * @deprecated As of VaultAPI 1.4 use {{@link #setPlayerSuffix(String, OfflinePlayer, String)} instead.
+     * @deprecated As of VaultAPI 1.4 use {@link #setPlayerSuffix(String, OfflinePlayer, String)} instead.
      * <p>
      * Set players suffix
      */
-    @Deprecated
+    @Deprecated(since = "1.4")
     abstract public void setPlayerSuffix(String world, String player, String suffix);
 
     /**
@@ -210,11 +210,11 @@ public abstract class Chat {
      * @param world  World Object
      * @param player Player name
      * @param suffix Suffix
-     * @deprecated As of VaultAPI 1.4 use {{@link #setPlayerSuffix(String, OfflinePlayer, String)} instead.
+     * @deprecated As of VaultAPI 1.4 use {@link #setPlayerSuffix(String, OfflinePlayer, String)} instead.
      * <p>
      * Set players suffix
      */
-    @Deprecated
+    @Deprecated(since = "1.4")
     public void setPlayerSuffix(World world, String player, String suffix) {
         setPlayerSuffix(world.getName(), player, suffix);
     }
@@ -328,10 +328,10 @@ public abstract class Chat {
      * @param node         Permission node
      * @param defaultValue Default value
      * @return Value
-     * @deprecated As of VaultAPI 1.4 use {{@link #getPlayerInfoInteger(String, OfflinePlayer, String, int)} instead.
+     * @deprecated As of VaultAPI 1.4 use {@link #getPlayerInfoInteger(String, OfflinePlayer, String, int)} instead.
      * Get a players informational node (Integer) value
      */
-    @Deprecated
+    @Deprecated(since = "1.4")
     abstract public int getPlayerInfoInteger(String world, String player, String node, int defaultValue);
 
     /**
@@ -340,11 +340,11 @@ public abstract class Chat {
      * @param node         Permission node
      * @param defaultValue Default value
      * @return Value
-     * @deprecated As of VaultAPI 1.4 use {{@link #getPlayerInfoInteger(String, OfflinePlayer, String, int)} instead.
+     * @deprecated As of VaultAPI 1.4 use {@link #getPlayerInfoInteger(String, OfflinePlayer, String, int)} instead.
      * <p>
      * Get a players informational node (Integer) value
      */
-    @Deprecated
+    @Deprecated(since = "1.4")
     public int getPlayerInfoInteger(World world, String player, String node, int defaultValue) {
         return getPlayerInfoInteger(world.getName(), player, node, defaultValue);
     }
@@ -378,11 +378,11 @@ public abstract class Chat {
      * @param player Player name
      * @param node   Permission node
      * @param value  Value to set
-     * @deprecated As of VaultAPI 1.4 use {{@link #setPlayerInfoInteger(String, OfflinePlayer, String, int)} instead.
+     * @deprecated As of VaultAPI 1.4 use {@link #setPlayerInfoInteger(String, OfflinePlayer, String, int)} instead.
      * <p>
      * Set a players informational node (Integer) value
      */
-    @Deprecated
+    @Deprecated(since = "1.4")
     abstract public void setPlayerInfoInteger(String world, String player, String node, int value);
 
     /**
@@ -390,11 +390,11 @@ public abstract class Chat {
      * @param player Player name
      * @param node   Permission node
      * @param value  Value to set
-     * @deprecated As of VaultAPI 1.4 use {{@link #setPlayerInfoInteger(String, OfflinePlayer, String, int)} instead.
+     * @deprecated As of VaultAPI 1.4 use {@link #setPlayerInfoInteger(String, OfflinePlayer, String, int)} instead.
      * <p>
      * Set a players informational node (Integer) value
      */
-    @Deprecated
+    @Deprecated(since = "1.4")
     public void setPlayerInfoInteger(World world, String player, String node, int value) {
         setPlayerInfoInteger(world.getName(), player, node, value);
     }
@@ -475,11 +475,11 @@ public abstract class Chat {
      * @param node         Permission node
      * @param defaultValue Default value
      * @return Value
-     * @deprecated As of VaultAPI 1.4 use {{@link #getPlayerInfoDouble(String, OfflinePlayer, String, double)} instead.
+     * @deprecated As of VaultAPI 1.4 use {@link #getPlayerInfoDouble(String, OfflinePlayer, String, double)} instead.
      * <p>
      * Get a players informational node (Double) value
      */
-    @Deprecated
+    @Deprecated(since = "1.4")
     abstract public double getPlayerInfoDouble(String world, String player, String node, double defaultValue);
 
     /**
@@ -488,11 +488,11 @@ public abstract class Chat {
      * @param node         Permission node
      * @param defaultValue Default value
      * @return Value
-     * @deprecated As of VaultAPI 1.4 use {{@link #getPlayerInfoDouble(String, OfflinePlayer, String, double)} instead
+     * @deprecated As of VaultAPI 1.4 use {@link #getPlayerInfoDouble(String, OfflinePlayer, String, double)} instead
      * <p>
      * Get a players informational node (Double) value
      */
-    @Deprecated
+    @Deprecated(since = "1.4")
     public double getPlayerInfoDouble(World world, String player, String node, double defaultValue) {
         return getPlayerInfoDouble(world.getName(), player, node, defaultValue);
     }
@@ -526,10 +526,10 @@ public abstract class Chat {
      * @param player Player name
      * @param node   Permission node
      * @param value  Value to set
-     * @deprecated As of VaultAPI 1.4 use {{@link #setPlayerInfoDouble(String, OfflinePlayer, String, double)} instead.
+     * @deprecated As of VaultAPI 1.4 use {@link #setPlayerInfoDouble(String, OfflinePlayer, String, double)} instead.
      * Set a players informational node (Double) value
      */
-    @Deprecated
+    @Deprecated(since = "1.4")
     abstract public void setPlayerInfoDouble(String world, String player, String node, double value);
 
     /**
@@ -537,10 +537,10 @@ public abstract class Chat {
      * @param player Player name
      * @param node   Permission node
      * @param value  Value to set
-     * @deprecated As of VaultAPI 1.4 use {{@link #setPlayerInfoDouble(String, OfflinePlayer, String, double)} instead.
+     * @deprecated As of VaultAPI 1.4 use {@link #setPlayerInfoDouble(String, OfflinePlayer, String, double)} instead.
      * Set a players informational node (Double) value
      */
-    @Deprecated
+    @Deprecated(since = "1.4")
     public void setPlayerInfoDouble(World world, String player, String node, double value) {
         setPlayerInfoDouble(world.getName(), player, node, value);
     }
@@ -621,11 +621,11 @@ public abstract class Chat {
      * @param node         Permission node
      * @param defaultValue Default value
      * @return Value
-     * @deprecated As of VaultAPI 1.4 use {{@link #getPlayerInfoBoolean(String, OfflinePlayer, String, boolean)} instead.
+     * @deprecated As of VaultAPI 1.4 use {@link #getPlayerInfoBoolean(String, OfflinePlayer, String, boolean)} instead.
      * <p>
      * Get a players informational node (Boolean) value
      */
-    @Deprecated
+    @Deprecated(since = "1.4")
     abstract public boolean getPlayerInfoBoolean(String world, String player, String node, boolean defaultValue);
 
     /**
@@ -634,11 +634,11 @@ public abstract class Chat {
      * @param node         Permission node
      * @param defaultValue Default value
      * @return Value
-     * @deprecated As of VaultAPI 1.4 use {{@link #getPlayerInfoBoolean(String, OfflinePlayer, String, boolean)} instead.
+     * @deprecated As of VaultAPI 1.4 use {@link #getPlayerInfoBoolean(String, OfflinePlayer, String, boolean)} instead.
      * <p>
      * Get a players informational node (Boolean) value
      */
-    @Deprecated
+    @Deprecated(since = "1.4")
     public boolean getPlayerInfoBoolean(World world, String player, String node, boolean defaultValue) {
         return getPlayerInfoBoolean(world.getName(), player, node, defaultValue);
     }
@@ -672,10 +672,10 @@ public abstract class Chat {
      * @param player Player name
      * @param node   Permission node
      * @param value  Value to set
-     * @deprecated As of VaultAPI 1.4 use {{@link #setPlayerInfoBoolean(String, OfflinePlayer, String, boolean)} instead.
+     * @deprecated As of VaultAPI 1.4 use {@link #setPlayerInfoBoolean(String, OfflinePlayer, String, boolean)} instead.
      * Set a players informational node (Boolean) value
      */
-    @Deprecated
+    @Deprecated(since = "1.4")
     abstract public void setPlayerInfoBoolean(String world, String player, String node, boolean value);
 
     /**
@@ -683,10 +683,10 @@ public abstract class Chat {
      * @param player Player name
      * @param node   Permission node
      * @param value  Value to set
-     * @deprecated As of VaultAPI 1.4 use {{@link #setPlayerInfoBoolean(String, OfflinePlayer, String, boolean)} instead.
+     * @deprecated As of VaultAPI 1.4 use {@link #setPlayerInfoBoolean(String, OfflinePlayer, String, boolean)} instead.
      * Set a players informational node (Boolean) value
      */
-    @Deprecated
+    @Deprecated(since = "1.4")
     public void setPlayerInfoBoolean(World world, String player, String node, boolean value) {
         setPlayerInfoBoolean(world.getName(), player, node, value);
     }
@@ -767,11 +767,11 @@ public abstract class Chat {
      * @param node         Permission node
      * @param defaultValue Default value
      * @return Value
-     * @deprecated As of VaultAPI 1.4 use {{@link #getPlayerInfoString(String, OfflinePlayer, String, String)} instead.
+     * @deprecated As of VaultAPI 1.4 use {@link #getPlayerInfoString(String, OfflinePlayer, String, String)} instead.
      * <p>
      * Get a players informational node (String) value
      */
-    @Deprecated
+    @Deprecated(since = "1.4")
     abstract public String getPlayerInfoString(String world, String player, String node, String defaultValue);
 
     /**
@@ -780,10 +780,10 @@ public abstract class Chat {
      * @param node         Permission node
      * @param defaultValue Default value
      * @return Value
-     * @deprecated As of VaultAPI 1.4 use {{@link #getPlayerInfoString(String, OfflinePlayer, String, String)} instead.
+     * @deprecated As of VaultAPI 1.4 use {@link #getPlayerInfoString(String, OfflinePlayer, String, String)} instead.
      * Get a players informational node (String) value
      */
-    @Deprecated
+    @Deprecated(since = "1.4")
     public String getPlayerInfoString(World world, String player, String node, String defaultValue) {
         return getPlayerInfoString(world.getName(), player, node, defaultValue);
     }
@@ -817,10 +817,10 @@ public abstract class Chat {
      * @param player Player name
      * @param node   Permission node
      * @param value  Value to set
-     * @deprecated As of VaultAPI 1.4 use {{@link #setPlayerInfoString(String, OfflinePlayer, String, String)} instead.
+     * @deprecated As of VaultAPI 1.4 use {@link #setPlayerInfoString(String, OfflinePlayer, String, String)} instead.
      * Set a players informational node (String) value
      */
-    @Deprecated
+    @Deprecated(since = "1.4")
     abstract public void setPlayerInfoString(String world, String player, String node, String value);
 
     /**
@@ -828,10 +828,10 @@ public abstract class Chat {
      * @param player Player name
      * @param node   Permission node
      * @param value  Value to set
-     * @deprecated As of VaultAPI 1.4 use {{@link #setPlayerInfoString(String, OfflinePlayer, String, String)} instead.
+     * @deprecated As of VaultAPI 1.4 use {@link #setPlayerInfoString(String, OfflinePlayer, String, String)} instead.
      * Set a players informational node (String) value
      */
-    @Deprecated
+    @Deprecated(since = "1.4")
     public void setPlayerInfoString(World world, String player, String node, String value) {
         setPlayerInfoString(world.getName(), player, node, value);
     }
@@ -910,10 +910,10 @@ public abstract class Chat {
      * @param player Player name
      * @param group  Group name
      * @return Success or Failure
-     * @deprecated As of VaultAPI 1.4 use {{@link #playerInGroup(String, OfflinePlayer, String)} instead.
+     * @deprecated As of VaultAPI 1.4 use {@link #playerInGroup(String, OfflinePlayer, String)} instead.
      * Check if player is member of a group.
      */
-    @Deprecated
+    @Deprecated(since = "1.4")
     public boolean playerInGroup(String world, String player, String group) {
         return perms.playerInGroup(world, player, group);
     }
@@ -923,10 +923,10 @@ public abstract class Chat {
      * @param player Player name
      * @param group  Group name
      * @return Success or Failure
-     * @deprecated As of VaultAPI 1.4 use {{@link #playerInGroup(String, OfflinePlayer, String)} instead.
+     * @deprecated As of VaultAPI 1.4 use {@link #playerInGroup(String, OfflinePlayer, String)} instead.
      * Check if player is member of a group.
      */
-    @Deprecated
+    @Deprecated(since = "1.4")
     public boolean playerInGroup(World world, String player, String group) {
         return playerInGroup(world.getName(), player, group);
     }
@@ -957,10 +957,10 @@ public abstract class Chat {
      * @param world  World name
      * @param player Player name
      * @return Array of groups
-     * @deprecated As of VaultAPI 1.4 use {{@link #getPlayerGroups(String, OfflinePlayer)} instead.
+     * @deprecated As of VaultAPI 1.4 use {@link #getPlayerGroups(String, OfflinePlayer)} instead.
      * Gets the list of groups that this player has
      */
-    @Deprecated
+    @Deprecated(since = "1.4")
     public String[] getPlayerGroups(String world, String player) {
         return perms.getPlayerGroups(world, player);
     }
@@ -969,10 +969,10 @@ public abstract class Chat {
      * @param world  World Object
      * @param player Player name
      * @return Array of groups
-     * @deprecated As of VaultAPI 1.4 use {{@link #getPlayerGroups(String, OfflinePlayer)} instead.
+     * @deprecated As of VaultAPI 1.4 use {@link #getPlayerGroups(String, OfflinePlayer)} instead.
      * Gets the list of groups that this player has
      */
-    @Deprecated
+    @Deprecated(since = "1.4")
     public String[] getPlayerGroups(World world, String player) {
         return getPlayerGroups(world.getName(), player);
     }
@@ -1002,10 +1002,10 @@ public abstract class Chat {
      * @param world  World name
      * @param player Player name
      * @return Players primary group
-     * @deprecated As of VaultAPI 1.4 use {{@link #getPrimaryGroup(String, OfflinePlayer)} instead.
+     * @deprecated As of VaultAPI 1.4 use {@link #getPrimaryGroup(String, OfflinePlayer)} instead.
      * Gets players primary group
      */
-    @Deprecated
+    @Deprecated(since = "1.4")
     public String getPrimaryGroup(String world, String player) {
         return perms.getPrimaryGroup(world, player);
     }
@@ -1014,10 +1014,10 @@ public abstract class Chat {
      * @param world  World Object
      * @param player Player name
      * @return Players primary group
-     * @deprecated As of VaultAPI 1.4 use {{@link #getPrimaryGroup(String, OfflinePlayer)} instead.
+     * @deprecated As of VaultAPI 1.4 use {@link #getPrimaryGroup(String, OfflinePlayer)} instead.
      * Gets players primary group
      */
-    @Deprecated
+    @Deprecated(since = "1.4")
     public String getPrimaryGroup(World world, String player) {
         return getPrimaryGroup(world.getName(), player);
     }
