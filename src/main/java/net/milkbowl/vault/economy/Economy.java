@@ -260,7 +260,7 @@ public interface Economy {
     /**
      * Deletes a bank account with the specified name.
      *
-     * @param name of the back to delete
+     * @param name of the bank to delete
      * @return if the operation completed successfully
      */
     EconomyResponse deleteBank(String name);
